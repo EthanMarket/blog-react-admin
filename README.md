@@ -1,57 +1,69 @@
-# Ant Design Pro
+## blog 后台管理系统
+* 使用[Ant Design Pro](https://pro.ant.design)初始化创建项目
+* 感谢[@夜尽天明](https://github.com/biaochenxuying)提供的[后台管理系统](https://github.com/biaochenxuying/blog-react-admin)UI模板支持
+### 一、项目准备
+* 安装node环境，本项目`node版本v10.15.3`
+* 安装依赖`npm install`
+* 运行`npm start`
+* `Node：`运行项目之前，需先启动[blog-koa项目](https://github.com/EthanMarket/blog-koa)
 
-This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
+### 二、项目预览：
+* 文章列表
+	* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/article.png)
+* 创建文章
+	* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/article-create.png) 
+* 项目管理
+	* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/project.png) 
+### 二、主要功能：
+####  1、`routers`目录
+* `config`//项目配置文件目录
+ *	[`blogRouters.js`](https://github.com/EthanMarket/blog-react-admin/blob/master/config/blogRouters.js) //项目路由目录，整个项目的页面路由
 
-## Environment Prepare
+-`SimpleCode：`
 
-Install `node_modules`:
+	{
+        path: '/',
+        component: '../layouts/BasicLayout',
+        authority: ['admin', 'user'],
+        routes: [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            icon: 'smile',
+            component: './Welcome',
+          },
+          {
+            path: '/article',
+            name: '文章',
+            icon: 'file-markdown',
+            routes: [
+              {
+                path: '/article/list',
+                name: '文章列表',
+                component: './Article/ArticleList/index',
+              },
+              {
+                path: '/article/create',
+                name: '创建文章',
+                component: './Article/ArticleCreate/index',
+              },
+            ],
+          },
+          **********************
+        ],
+      }
+####  2、`src/services`目录
+* [`api.js`](https://github.com/EthanMarket/blog-react-admin/blob/master/src/services/api.js)保存了api接口信息
 
-```bash
-npm install
-```
-
-or
-
-```bash
-yarn
-```
-
-## Provided Scripts
-
-Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
-
-Scripts provided in `package.json`. It's safe to modify or add additional script:
-
-### Start project
-
-```bash
-npm start
-```
-
-### Build project
-
-```bash
-npm run build
-```
-
-### Check code style
-
-```bash
-npm run lint
-```
-
-You can also use script to auto fix some lint error:
-
-```bash
-npm run lint:fix
-```
-
-### Test code
-
-```bash
-npm test
-```
-
-## More
-
-You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
+-`SimpleCode：`
+    
+    export async function queryArticle(params) {
+      return request(`/api/getArticleListAdmin?${stringify(params)}`);
+    }
+    
+    export async function addArticle(params) {
+      return request('/api/addArticle', {
+	    method: 'POST',
+	    data: params,
+      });
+    }
