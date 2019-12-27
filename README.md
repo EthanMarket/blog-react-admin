@@ -8,12 +8,8 @@
 * `Node：`运行项目之前，需先启动[blog-koa项目](https://github.com/EthanMarket/blog-koa)
 
 ### 二、项目预览：
-* 文章列表
-	* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/article.png)
-* 创建文章
-	* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/article-create.png) 
-* 项目管理
-	* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/project.png) 
+* 
+	
 ### 二、主要功能：
 ####  1、`routers`目录
 * `config`//项目配置文件目录
