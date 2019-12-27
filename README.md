@@ -8,7 +8,7 @@
 * `Node：`运行项目之前，需先启动[blog-koa项目](https://github.com/EthanMarket/blog-koa)
 
 ### 二、项目预览：
-* 
+* ![](https://github.com/EthanMarket/blog-react-admin/raw/master/images/admin.gif)
 	
 ### 二、主要功能：
 ####  1、`routers`目录
